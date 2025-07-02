@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood Bank Compatibility Slip</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="page-title">Blood Bank Slips Management System</h1>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <h3><i class="fas fa-clipboard-list blood-icon"></i>Blood Compatibility Input</h3>
+                <form id="bloodForm">
+                    <div class="step-indicator">
+                        <div class="step active" id="step-1-indicator">Patient Info</div>
+                        <div class="step" id="step-2-indicator">Blood Product</div>
+                        <div class="step" id="step-3-indicator">Compatibility</div>
+                    </div>
+                    
+                    <div class="form-step active" id="step-1">
+                        <h5 class="step-title"><i class="fas fa-user-circle"></i> Patient Information</h5>
+                        
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input class="form-control" placeholder="Patient Name" id="patientName" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                            <input class="form-control" placeholder="MR #" id="mrNumber">
+                        </div>
+                        
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user-friends"></i></span>
+                            <input class="form-control" placeholder="S/o" id="so">
+                        </div>
+                        
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                            <input class="form-control" placeholder="Order #" id="orderNumber">
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
+                                    <input class="form-control" placeholder="Age" id="age">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-procedures"></i></span>
+                                    <input class="form-control" placeholder="Ward/Bed #" id="ward">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
+                                    <input class="form-control" placeholder="Gender" id="gender">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-hospital"></i></span>
+                                    <input class="form-control" placeholder="Hospital" id="hospital">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-user-md"></i></span>
+                                    <input class="form-control" placeholder="Consultant" id="consultant">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-file-medical"></i></span>
+                                    <input class="form-control" placeholder="IPR #" id="ipr">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step-buttons">
+                            <div></div> <button type="button" class="btn btn-primary next-step" data-step="1">
+                                Next <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step" id="step-2">
+                        <h5 class="step-title"><i class="fas fa-tint"></i> Blood Product Information</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-calendar-check"></i></span>
+                                    <input class="form-control" placeholder="Crossmatch Date" type="date" id="crossmatchDate">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+                                    <input class="form-control" placeholder="Sample Date" type="date" id="sampleDate">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-tint"></i></span>
+                                    <input class="form-control" placeholder="Product Group" id="productGroup">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                                    <input class="form-control" placeholder="Patient Group" id="patientGroup">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step-buttons">
+                            <button type="button" class="btn btn-secondary prev-step" data-step="2">
+                                <i class="fas fa-arrow-left"></i> Previous
+                            </button>
+                            <button type="button" class="btn btn-primary next-step" data-step="2">
+                                Next <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step" id="step-3">
+                        <h5 class="step-title"><i class="fas fa-check-circle"></i> Compatibility Testing</h5>
+                        
+                        <div class="cross-match-options">
+                            <h6><i class="fas fa-flask"></i> Cross Match</h6>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="immediateSpin" value="Negative" checked>
+                                    Immediate Spin: Negative
+                                </label>
+                            </div>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="immediateSpin" value="Positive">
+                                    Immediate Spin: Positive
+                                </label>
+                            </div>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="albumin" value="Negative" checked>
+                                    Albumin/37°C: Negative
+                                </label>
+                            </div>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="albumin" value="Positive">
+                                    Albumin/37°C: Positive
+                                </label>
+                            </div>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="indirectCoombs" value="Negative" checked>
+                                    Indirect Coombs (AHG): Negative
+                                </label>
+                            </div>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="indirectCoombs" value="Positive">
+                                    Indirect Coombs (AHG): Positive
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="cross-match-options mt-4">
+                            <h6><i class="fas fa-vial"></i> Transfusion Transmitted Infections</h6>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="hbsag" value="Non-Reactive" checked>
+                                    HBsAg: Non-Reactive
+                                </label>
+                            </div>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="hbsag" value="Reactive">
+                                    HBsAg: Reactive
+                                </label>
+                            </div>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="hivAntibody" value="Non-Reactive" checked>
+                                    HIV Antibody: Non-Reactive
+                                </label>
+                            </div>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="hivAntibody" value="Reactive">
+                                    HIV Antibody: Reactive
+                                </label>
+                            </div>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="antiHcv" value="Non-Reactive" checked>
+                                    Anti HCV: Non-Reactive
+                                </label>
+                            </div>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="antiHcv" value="Reactive">
+                                    Anti HCV: Reactive
+                                </label>
+                            </div>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="syphilisRpr" value="Negative" checked>
+                                    Syphilis RPR: Negative
+                                </label>
+                            </div>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="syphilisRpr" value="Positive">
+                                    Syphilis RPR: Positive
+                                </label>
+                            </div>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="malariaParasite" value="Negative" checked>
+                                    Malaria Parasite: Negative
+                                </label>
+                            </div>
+                            
+                            <div class="cross-match-option">
+                                <label>
+                                    <input type="radio" name="malariaParasite" value="Positive">
+                                    Malaria Parasite: Positive
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group mt-4">
+                            <span class="input-group-text"><i class="fas fa-check-circle"></i></span>
+                            <select class="form-control" id="results">
+                                <option value="Compatible">Compatible</option>
+                                <option value="Not Compatible">Not Compatible</option>
+                            </select>
+                        </div>
+                        
+                        <div class="step-buttons">
+                            <button type="button" class="btn btn-secondary prev-step" data-step="3">
+                                <i class="fas fa-arrow-left"></i> Previous
+                            </button>
+                            <button class="btn btn-primary w-50" type="submit">
+                                <i class="fas fa-file-medical"></i> Generate Slip
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="receipt-preview" id="receiptPreview">
+                <div class="receipt-body">
+                    <div class="receipt-column">
+                        <div class="receipt-item">
+                            <strong>Name:</strong> 
+                            <span id="r_patientName">-</span>
+                        </div>
+                        <div class="receipt-item">
+                            <strong>S/o:</strong> 
+                            <span id="r_so">-</span>
+                        </div>
+                        <div class="receipt-item">
+                            <strong>Age:</strong> 
+                            <span id="r_age">-</span>
+                        </div>
+                        <div class="receipt-item">
+                            <strong>Gender:</strong> 
+                            <span id="r_gender">-</span>
+                        </div>
+                        <div class="receipt-item">
+                            <strong>Consultant:</strong> 
+                            <span id="r_consultant">-</span>
+                        </div>
+                    </div>
+                    
+                    <div class="receipt-column">
+                        <div class="receipt-item">
+                            <strong>MR #:</strong> 
+                            <span id="r_mrNumber">-</span>
+                        </div>
+                        <div class="receipt-item">
+                            <strong>Order #:</strong> 
+                            <span id="r_orderNumber">-</span>
+                        </div>
+                        <div class="receipt-item">
+                            <strong>Ward/Bed #:</strong> 
+                            <span id="r_ward">-</span>
+                        </div>
+                        <div class="receipt-item">
+                            <strong>Hospital:</strong> 
+                            <span id="r_hospital">-</span>
+                        </div>
+                        <div class="receipt-item">
+                            <strong>IPR #:</strong> 
+                            <span id="r_ipr">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="compatibility-section">
+                    <h4 class="section-title">COMPATIBILITY TESTING</h4>
+                    
+                    <div class="compatibility-columns">
+                        <div class="compatibility-column">
+                            <div class="receipt-item">
+                                <strong>Product Group:</strong> 
+                                <span id="r_productGroup">-</span>
+                            </div>
+                            <div class="receipt-item">
+                                <strong>Patient Group:</strong> 
+                                <span id="r_patientGroup">-</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compatibility-column">
+                            <div class="receipt-item">
+                                <strong>Crossmatch Date:</strong> 
+                                <span id="r_crossmatchDate">-</span>
+                            </div>
+                            <div class="receipt-item">
+                                <strong>Sample Date:</strong> 
+                                <span id="r_sampleDate">-</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cross-match-results">
+                        <h5>Cross Match</h5>
+                        <table class="cross-match-table">
+                            <tr>
+                                <td>Immediate Spin</td>
+                                <td id="r_immediateSpin">Negative</td>
+                            </tr>
+                            <tr>
+                                <td>Albumin/37°C</td>
+                                <td id="r_albumin">Negative</td>
+                            </tr>
+                            <tr>
+                                <td>Indirect Coombs (AHG)</td>
+                                <td id="r_indirectCoombs">Negative</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="compatibility-result">
+                        <strong>Result:</strong> Donor's Red Blood Cells are <span id="r_results">COMPATIBLE</span> with the patient's serum.
+                    </div>
+                    
+                    <div class="tti-section">
+                        <h5>Transfusion Transmitted Infections</h5>
+                        <table class="tti-table">
+                            <tr>
+                                <th>Test</th>
+                                <th>Result</th>
+                            </tr>
+                            <tr>
+                                <td>HBsAg</td>
+                                <td id="r_hbsag">Non-Reactive</td>
+                            </tr>
+                            <tr>
+                                <td>HIV Antibody</td>
+                                <td id="r_hivAntibody">Non-Reactive</td>
+                            </tr>
+                            <tr>
+                                <td>Anti HCV</td>
+                                <td id="r_antiHcv">Non-Reactive</td>
+                            </tr>
+                            <tr>
+                                <td>Syphilis RPR</td>
+                                <td id="r_syphilisRpr">Negative</td>
+                            </tr>
+                            <tr>
+                                <td>Malaria Parasite</td>
+                                <td id="r_malariaParasite">Negative</td>
+                            </tr>
+                        </table>
+                        <div class="tti-note">
+                            <small>Note: HBsAg, Anti-HCV, HIV 1&2 are performed on automated FDA approved Immunoassay System.<br>
+                            This bag has been arranged from healthy donors.</small>
+                        </div>
+                    </div>
+                    
+                    <div class="instructions-section">
+                        <p><strong>Before the transfusion, please ensure the following:</strong></p>
+                        <ol>
+                            <li>Check tag no., name and group with report form</li>
+                            <li>Blood/blood product should be transfused at room temperature</li>
+                            <li>Blood/blood product should be stored in monitored blood banking refrigerator only</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="signature-line">
+                        <p>This is an electronically verified report, therefore does not require a signature.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3 no-print">
+                <button class="btn btn-secondary" onclick="window.print()">
+                    <i class="fas fa-print"></i> Print Compatibility Slip
+                </button>
+                <button class="btn btn-primary" id="backToForm">
+                    <i class="fas fa-arrow-left"></i> Back to Form
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="savedReceipts" class="card mt-4 no-print">
+    <h3><i class="fas fa-save"></i> Saved Compatibility Slips</h3>
+    <ul id="receiptList" class="list-group"></ul>
+    <div class="d-flex justify-content-center gap-3 mt-3">
+        <button class="btn btn-primary" onclick="exportReceipts()">
+            <i class="fas fa-file-export"></i> Export Slips
+        </button>
+        <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()">
+            <i class="fas fa-file-import"></i> Import Slips
+        </button>
+        <input type="file" id="importFile" accept="application/json" style="display:none" />
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
